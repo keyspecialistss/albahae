@@ -16,9 +16,66 @@
         .modal-content { transition: transform 0.3s ease; }
         .seo-text-area { line-height: 1.8; text-align: justify; }
         .service-grid-compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .stat-number { font-weight: 900; color: #1f2937; }
+        .payment-logo { height: 35px; width: auto; filter: grayscale(0); transition: transform 0.3s; }
+        .payment-logo:hover { transform: scale(1.1); }
+        
+        /* Floating WhatsApp Button Style */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+        
+        /* Top Announcement Bar */
+        .top-announcement {
+            background-color: #39FAD2;
+            color: #000;
+            padding: 8px 0;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Scrollbar styling for long modal content */
+        #landingModal .rounded-3xl::-webkit-scrollbar {
+            width: 8px;
+        }
+        #landingModal .rounded-3xl::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        #landingModal .rounded-3xl::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
+
+    <!-- 1. Top Announcement Bar (Tabby) -->
+    <div class="top-announcement flex items-center justify-center gap-2">
+        <span>متوفر الآن خدمة الأقساط عبر تابي (Tabby) - قسّم مشترياتك</span>
+        <svg width="40" height="15" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" class="inline-block">
+            <text x="50" y="22" font-family="Arial, sans-serif" font-weight="900" font-size="24" text-anchor="middle" fill="#000">tabby</text>
+        </svg>
+    </div>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
@@ -57,23 +114,69 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="py-12 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center card-hover">
+                    <div class="stat-number text-3xl md:text-4xl mb-2">15+</div>
+                    <div class="text-gray-500 font-bold text-sm md:text-base">سنة خبرة</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center card-hover">
+                    <div class="stat-number text-3xl md:text-4xl mb-2">10,000+</div>
+                    <div class="text-gray-500 font-bold text-sm md:text-base">مفتاح مبرمج</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center card-hover">
+                    <div class="stat-number text-3xl md:text-4xl mb-2">24/7</div>
+                    <div class="text-gray-500 font-bold text-sm md:text-base">خدمة طوارئ</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center card-hover">
+                    <div class="stat-number text-3xl md:text-4xl mb-2">100%</div>
+                    <div class="text-gray-500 font-bold text-sm md:text-base">ضمان الخدمة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Business Hours Section -->
+    <section class="py-12 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-lg border border-blue-100 overflow-hidden">
+                <div class="bg-blue-900 text-white py-4 px-6 text-center">
+                    <h2 class="text-2xl font-black flex items-center justify-center gap-3">
+                        <i class="far fa-clock"></i> أوقات العمل
+                    </h2>
+                </div>
+                <div class="p-8 grid md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-gray-100">
+                    <div class="text-center pb-6 md:pb-0">
+                        <h3 class="text-xl font-black text-blue-900 mb-3">أوقات العمل العامة</h3>
+                        <p class="text-gray-600 font-bold mb-1">طوال أيام الأسبوع</p>
+                        <p class="text-2xl font-black text-gray-800">8:00 صباحاً - 12:00 مساءً</p>
+                    </div>
+                    <div class="text-center pt-6 md:pt-0">
+                        <h3 class="text-xl font-black text-green-700 mb-3 flex items-center justify-center gap-2">
+                            <i class="fas fa-moon"></i> أوقات شهر رمضان
+                        </h3>
+                        <p class="text-gray-600 font-bold mb-1">المبارك</p>
+                        <p class="text-2xl font-black text-gray-800">1:00 ظهراً - 2:00 فجراً</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Detailed Services Section -->
     <section id="services-section" class="py-16 px-4 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-black text-center mb-4 text-blue-900">خدماتنا التخصصية والشاملة</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto font-bold">نقدم قائمة ضخمة من الخدمات التي تغطي كل احتياجاتكم في منطقة الباحة والمملكة العربية السعودية.</p>
-        
-        <div class="service-grid-compact" id="services-container">
-            <!-- Services cards will be generated by JavaScript -->
-        </div>
+        <h2 class="text-3xl font-black text-center mb-4 text-blue-900 underline decoration-blue-200 decoration-4 underline-offset-8">تخصصاتنا الاحترافية</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto font-bold italic">نغطي كافة احتياجاتك بأعلى المعايير</p>
+        <div class="service-grid-compact" id="services-container"></div>
     </section>
 
     <!-- Review Section -->
     <section id="reviews" class="bg-white py-16 px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-black text-center mb-10 text-blue-900 border-b-2 border-blue-100 pb-4">ماذا يقول عملاء الباحة عن خدماتنا؟</h2>
-            <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Unique Reviews injected via JS -->
-            </div>
+            <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></div>
         </div>
     </section>
 
@@ -100,9 +203,20 @@
     <!-- SEO Section -->
     <section id="seo-section" class="py-16 px-4 bg-white">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-black text-blue-900 mb-10 text-center">أضخم محتوى أرشيفي لمحركات البحث في الباحة والسعودية</h2>
-            <div class="seo-text-area text-gray-700 space-y-6 text-lg" id="master-seo-content">
-                <!-- Master SEO Text Injected Here -->
+            <div class="seo-text-area text-gray-700 space-y-6 text-lg" id="master-seo-content"></div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section (Sub-Footer) -->
+    <section class="bg-white border-t border-gray-100 py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" class="payment-logo" title="Apple Pay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Mada_Logo.svg" alt="Mada" class="payment-logo" title="مدى">
+                <svg class="payment-logo" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="30" rx="6" fill="#39FAD2"/>
+                    <text x="50" y="22" font-family="Arial, sans-serif" font-weight="900" font-size="24" text-anchor="middle" fill="#000">tabby</text>
+                </svg>
             </div>
         </div>
     </section>
@@ -120,42 +234,104 @@
         </div>
     </footer>
 
-    <!-- Landing Page Modal -->
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/966533040473" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Landing Page Modal (Scrollable Content) -->
     <div id="landingModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 p-4">
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-y-auto shadow-2xl relative">
-            <button onclick="closeLanding()" class="absolute top-4 left-4 bg-red-600 text-white w-10 h-10 rounded-full font-bold shadow-lg z-10">✕</button>
-            <div id="landingContent" class="p-8 md:p-12 text-right">
-                <!-- Content injected here -->
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl relative flex flex-col">
+            <div class="p-6 border-b flex justify-between items-center bg-blue-50 sticky top-0 z-10">
+                <div id="modalHeaderContent" class="flex items-center gap-3"></div>
+                <button onclick="closeLanding()" class="bg-red-600 text-white w-10 h-10 rounded-full font-bold shadow-lg hover:bg-red-700">✕</button>
+            </div>
+            <div class="p-8 md:p-12 overflow-y-auto text-right flex-1" id="landingContent" dir="rtl"></div>
+            <div class="p-6 border-t bg-gray-50 flex gap-4 justify-end sticky bottom-0 z-10">
+                <a href="tel:+966533040473" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-blue-700">اتصل الآن</a>
+                <a href="https://wa.me/966533040473" class="bg-green-500 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-green-600">واتساب</a>
             </div>
         </div>
     </div>
 
     <script>
-        // List of 20+ Services
+        // SEO Enhanced Long Content Generator for Modals
+        const generateLongContent = (title, category) => {
+            return `
+                <div class="space-y-8 text-gray-800 leading-relaxed">
+                    <section>
+                        <h2 class="text-2xl font-black text-blue-900 mb-4 border-r-4 border-blue-600 pr-4">مقدمة عن خدمة ${title} في منطقة الباحة</h2>
+                        <p>تعتبر خدمة <strong>${title}</strong> من أكثر الخدمات طلباً في منطقة الباحة، نظراً للتطور التكنولوجي الكبير في أنظمة الحماية والسيارات الحديثة. نحن في مركز المتخصصون للمفاتيح، ندرك تماماً مدى الإزعاج الذي قد يسببه فقدان مفتاح أو تعطله، ولذلك نوفر أفضل <strong>فني مفاتيح محترف</strong> مجهز بأحدث المعدات. إذا كنت تبحث عن <strong>نسخ مفاتيح في الباحة</strong> أو كنت بحاجة إلى خدمة سريعة لأنك تسأل عن <strong>محلات مفاتيح قريبة مني</strong>، فإننا الخيار الأول الذي يجمع بين الخبرة العريقة والتكنولوجيا الحديثة. نحن نغطي كافة احتياجاتك من <strong>برمجة مفاتيح سيارات السعودية</strong> بمختلف أنواعها، ونضمن لك جودة تضاهي الوكالة بل وتتفوق عليها من حيث السرعة والتكلفة.</p>
+                    </section>
+
+                    <section class="bg-blue-50 p-6 rounded-2xl">
+                        <h2 class="text-2xl font-black text-blue-900 mb-4">لماذا نحن الأفضل في المملكة العربية السعودية والباحة؟</h2>
+                        <p>يتميز مركزنا بكونه المرجع الأساسي لعمليات <strong>فتح أقفال</strong> وبرمجة الأنظمة المعقدة. لماذا يختارنا أهالي الباحة؟</p>
+                        <ul class="list-disc pr-6 space-y-3 mt-4">
+                            <li><strong>دقة متناهية:</strong> نستخدم أجهزة إيطالية وألمانية متطورة لضمان <strong>نسخ مفاتيح</strong> بدقة 100%.</li>
+                            <li><strong>فنيين خبراء:</strong> فريقنا مكون من <strong>فني مفاتيح محترف</strong> مدرب على التعامل مع كافة الأنواع من تويوتا، هيونداي، فورد، مرسيدس، وصولاً إلى السيارات الصينية الحديثة.</li>
+                            <li><strong>تغطية شاملة:</strong> سواء كنت في وسط الباحة أو القرى المجاورة وتبحث عن <strong>محلات مفاتيح قريبة مني</strong>، نحن نصل إليك أو نستقبلك في فرعنا بطريق الملك عبدالعزيز.</li>
+                            <li><strong>برمجة متكاملة:</strong> نحن رواد في <strong>برمجة مفاتيح سيارات السعودية</strong>، حيث نمتلك صلاحيات الدخول لأنظمة الإيموبلايزر والتشغيل الذكي.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-black text-blue-900 mb-4">فوائد الخدمة: الأمان، السرعة، والتوفير المادي</h2>
+                        <p>عند حصولك على خدمة <strong>${title}</strong> منا، فأنت تستفيد من باقة من المزايا:</p>
+                        <div class="grid md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm text-center">
+                                <i class="fas fa-shield-alt text-3xl text-blue-600 mb-2"></i>
+                                <h4 class="font-bold">أمان عالي</h4>
+                                <p class="text-sm">نضمن عدم تسريب أي بيانات برمجية لسيارتك.</p>
+                            </div>
+                            <div class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm text-center">
+                                <i class="fas fa-bolt text-3xl text-yellow-500 mb-2"></i>
+                                <h4 class="font-bold">سرعة التنفيذ</h4>
+                                <p class="text-sm">معظم العمليات تتم في أقل من 30 دقيقة.</p>
+                            </div>
+                            <div class="bg-white border border-gray-100 p-4 rounded-xl shadow-sm text-center">
+                                <i class="fas fa-hand-holding-usd text-3xl text-green-600 mb-2"></i>
+                                <h4 class="font-bold">توفير مالي</h4>
+                                <p class="text-sm">أسعارنا أقل بنسبة تصل إلى 60% من أسعار الوكالات.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-black text-blue-900 mb-4">التفاصيل التقنية والأجهزة المستخدمة</h2>
+                        <p>نحن لا نعمل بالأساليب التقليدية فقط، بل نعتمد على هندسة برمجية دقيقة. في عمليات <strong>برمجة مفاتيح سيارات السعودية</strong>، نستخدم أجهزة مثل OBDSTAR و VVDI و Autel وغيرها. هذه الأجهزة تتيح لـ <strong>فني مفاتيح محترف</strong> سحب الأكواد المخفية وإعادة تعيينها. كما نقوم بعمليات <strong>نسخ مفاتيح في الباحة</strong> باستخدام مكائن قص كمبيوترية ليزرية تضمن تطابقاً تاماً مع القفل الأصلي. سواء كان طلبك هو <strong>فتح أقفال</strong> عالقة أو تحديث نظام الريموت، فإن تقنياتنا تضمن الحفاظ على ضفيرة السيارة والكمبيوتر الأصلي دون أي تعديل ضار.</p>
+                    </section>
+
+                    <section class="border-t pt-6">
+                        <p class="text-sm text-gray-500 italic">ملاحظة: نحن في المتخصصون للمفاتيح نلتزم بتقديم الضمان على كافة خدماتنا. إذا كنت تبحث عن <strong>محلات مفاتيح قريبة مني</strong> توفر حلولاً فورية وبأقساط تابي، فلا تتردد في زيارتنا. خدمة <strong>نسخ مفاتيح</strong> بجودة الوكالة وبأيدي سعودية خبيرة.</p>
+                    </section>
+                </div>
+            `;
+        };
+
         const services = [
-            { id: 'car-key', title: 'برمجة مفاتيح السيارات', icon: 'fa-car', color: 'bg-red-500', keywords: 'برمجة مفاتيح سيارات الباحة، محل مفاتيح الباحة، نسخ ريموت سيارة، طريق الملك عبدالعزيز' },
-            { id: 'smart-key', title: 'برمجة مفاتيح البصمة', icon: 'fa-fingerprint', color: 'bg-blue-600', keywords: 'مفاتيح بصمة الباحة، تشغيل بصمة، برمجة مفتاح ذكي، السعودية مفاتيح' },
-            { id: 'house-key', title: 'نسخ مفاتيح المنازل', icon: 'fa-home', color: 'bg-green-600', keywords: 'نسخ مفاتيح منازل، مفاتيح شقق الباحة، اقفال ابواب، مفتاح باب حديد' },
-            { id: 'truck-key', title: 'مفاتيح الشاحنات والمعدات', icon: 'fa-truck', color: 'bg-gray-800', keywords: 'مفاتيح شاحنات الباحة، مرسيدس اكتروس، برمجة شاحنات، معدات ثقيلة' },
-            { id: 'remote-repair', title: 'إصلاح ريموتات السيارات', icon: 'fa-tools', color: 'bg-yellow-500', keywords: 'تصليح ريموت سيارة، تغيير ازرار ريموت، بورد ريموت، الباحة' },
-            { id: 'battery-change', title: 'تغيير بطاريات الريموت', icon: 'fa-battery-full', color: 'bg-purple-600', keywords: 'بطارية ريموت سيارة، بطارية اصلية، محل مفاتيح الباحة' },
-            { id: 'unlock-car', title: 'فتح السيارات المقفلة', icon: 'fa-unlock', color: 'bg-orange-600', keywords: 'فتح سيارة الباحة، طوارئ مفاتيح، فتح باب سيارة بدون كسر' },
-            { id: 'laser-cut', title: 'قص مفاتيح ليزر', icon: 'fa-bolt', color: 'bg-blue-400', keywords: 'مفتاح ليزر، قص ليزر، مكينة مفاتيح ايطالية، الباحة' },
-            { id: 'safe-key', title: 'فتح ونسخ مفاتيح الخزائن', icon: 'fa-vault', color: 'bg-indigo-700', keywords: 'مفتاح تجوري، فتح خزنة، نسخ مفتاح خزنة الباحة' },
-            { id: 'lost-key', title: 'استخراج مفاتيح مفقودة', icon: 'fa-search', color: 'bg-pink-600', keywords: 'فقدت مفتاح سيارتي، استخراج مفتاح من الكمبيوتر، الباحة' },
-            { id: 'immobilizer', title: 'إلغاء نظام الإيموبلايزر', icon: 'fa-microchip', color: 'bg-cyan-600', keywords: 'الغاء حماية مفتاح، برمجة كمبيوتر سيارة، الباحة' },
-            { id: 'shell-change', title: 'تغيير أغطية الريموتات', icon: 'fa-exchange-alt', color: 'bg-slate-600', keywords: 'كفر ريموت، غطاء مفتاح، تجديد ريموت سيارة' },
-            { id: 'bike-key', title: 'مفاتيح الدراجات النارية', icon: 'fa-motorcycle', color: 'bg-red-700', keywords: 'مفتاح دباب، برمجة مفتاح دراجة نارية، الباحة' },
-            { id: 'elevator-key', title: 'نسخ مفاتيح المصاعد', icon: 'fa-sort', color: 'bg-teal-600', keywords: 'مفتاح اسانسير، برمجة كرت مصعد، الباحة مفاتيح' },
-            { id: 'office-key', title: 'مفاتيح المكاتب والأدراج', icon: 'fa-briefcase', color: 'bg-amber-800', keywords: 'مفتاح مكتب، قفل درج، نسخ مفاتيح مكاتب' },
-            { id: 'gate-remote', title: 'برمجة ريموتات الكراج', icon: 'fa-warehouse', color: 'bg-blue-800', keywords: 'ريموت كراج، بوابة الكترونية، برمجة ريموت باب' },
-            { id: 'flip-key', title: 'تحويل المفتاح إلى طي', icon: 'fa-folder-open', color: 'bg-emerald-600', keywords: 'مفتاح طي، تحويل مفتاح سيارة، ريموت مطوي' },
-            { id: 'hotel-card', title: 'برمجة كروت الفنادق', icon: 'fa-id-card', color: 'bg-indigo-600', keywords: 'كرت فندق، برمجة اقفال فنادق، الباحة' },
-            { id: 'emergency', title: 'خدمة الطوارئ الميدانية', icon: 'fa-ambulance', color: 'bg-red-600', keywords: 'مفتاح طوارئ، فني مفاتيح متنقل، الباحة طريق الملك عبدالعزيز' },
-            { id: 'spare-key', title: 'توفير مفاتيح سبير احتياطية', icon: 'fa-copy', color: 'bg-blue-500', keywords: 'مفتاح احتياطي، نسخ سبير، تأمين مفتاح سيارة' }
+            { id: 'car-key', title: 'برمجة مفاتيح السيارات', icon: 'fa-car', color: 'bg-red-500' },
+            { id: 'smart-key', title: 'برمجة مفاتيح البصمة', icon: 'fa-fingerprint', color: 'bg-blue-600' },
+            { id: 'house-key', title: 'نسخ مفاتيح المنازل', icon: 'fa-home', color: 'bg-green-600' },
+            { id: 'truck-key', title: 'مفاتيح الشاحنات والمعدات', icon: 'fa-truck', color: 'bg-gray-800' },
+            { id: 'remote-repair', title: 'إصلاح ريموتات السيارات', icon: 'fa-tools', color: 'bg-yellow-500' },
+            { id: 'battery-change', title: 'تغيير بطاريات الريموت', icon: 'fa-battery-full', color: 'bg-purple-600' },
+            { id: 'unlock-car', title: 'فتح السيارات المقفلة', icon: 'fa-unlock', color: 'bg-orange-600' },
+            { id: 'laser-cut', title: 'قص مفاتيح ليزر', icon: 'fa-bolt', color: 'bg-blue-400' },
+            { id: 'safe-key', title: 'فتح ونسخ مفاتيح الخزائن', icon: 'fa-vault', color: 'bg-indigo-700' },
+            { id: 'lost-key', title: 'استخراج مفاتيح مفقودة', icon: 'fa-search', color: 'bg-pink-600' },
+            { id: 'immobilizer', title: 'إلغاء نظام الإيموبلايزر', icon: 'fa-microchip', color: 'bg-cyan-600' },
+            { id: 'shell-change', title: 'تغيير أغطية الريموتات', icon: 'fa-exchange-alt', color: 'bg-slate-600' },
+            { id: 'bike-key', title: 'مفاتيح الدراجات النارية', icon: 'fa-motorcycle', color: 'bg-red-700' },
+            { id: 'elevator-key', title: 'نسخ مفاتيح المصاعد', icon: 'fa-sort', color: 'bg-teal-600' },
+            { id: 'office-key', title: 'مفاتيح المكاتب والأدراج', icon: 'fa-briefcase', color: 'bg-amber-800' },
+            { id: 'gate-remote', title: 'برمجة ريموتات الكراج', icon: 'fa-warehouse', color: 'bg-blue-800' },
+            { id: 'flip-key', title: 'تحويل المفتاح إلى طي', icon: 'fa-folder-open', color: 'bg-emerald-600' },
+            { id: 'hotel-card', title: 'برمجة كروت الفنادق', icon: 'fa-id-card', color: 'bg-indigo-600' },
+            { id: 'emergency', title: 'خدمة الطوارئ الميدانية', icon: 'fa-ambulance', color: 'bg-red-600' },
+            { id: 'spare-key', title: 'توفير مفاتيح سبير احتياطية', icon: 'fa-copy', color: 'bg-blue-500' }
         ];
 
-        // Populate Services
         const container = document.getElementById('services-container');
         services.forEach(s => {
             container.innerHTML += `
@@ -176,44 +352,20 @@
             const service = services.find(s => s.id === id);
             const modal = document.getElementById('landingModal');
             const content = document.getElementById('landingContent');
+            const header = document.getElementById('modalHeaderContent');
             
-            content.innerHTML = `
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="${service.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl">
-                        <i class="fas ${service.icon} text-3xl"></i>
-                    </div>
-                    <h1 class="text-3xl font-black text-blue-900">${service.title}</h1>
+            header.innerHTML = `
+                <div class="${service.color} w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg">
+                    <i class="fas ${service.icon} text-xl"></i>
                 </div>
-                
-                <div class="prose max-w-none text-gray-700">
-                    <h2 class="text-2xl font-bold mb-4">تفاصيل خدمة ${service.title} في الباحة</h2>
-                    <p class="mb-4 leading-relaxed font-bold">يعتبر مركز المتخصصون للمفاتيح الوجهة الأفضل لـ ${service.title}. نحن نستخدم أحدث الأجهزة الإيطالية والأمريكية لضمان جودة الخدمة. سواء كنت تبحث عن الدقة أو السرعة، نحن نضمن لك رضاءً تاماً بنسبة 100%.</p>
-                    
-                    <h3 class="text-xl font-bold mb-4">لماذا نحن الأفضل في هذه الخدمة؟</h3>
-                    <ul class="list-disc pr-6 space-y-2 mb-8">
-                        <li>خبرة تزيد عن سنوات طويلة في سوق الباحة والسعودية.</li>
-                        <li>استخدام قطع غيار أصلية ومضمونة.</li>
-                        <li>فريق فني متخصص ومدرب على أعلى مستوى.</li>
-                        <li>أسعار تنافسية تقل عن الوكالات والمنافسين.</li>
-                        <li>موقعنا المميز على طريق الملك عبدالعزيز يجعل الوصول إلينا سهلاً.</li>
-                    </ul>
-
-                    <p class="mb-6 font-bold text-blue-800">لا تتردد في طلب خدمة ${service.title} الآن عبر الاتصال المباشر أو زيارة فرعنا بالباحة.</p>
-                    
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                        <h4 class="font-bold mb-2">كلمات مفتاحية للأرشفة:</h4>
-                        <p class="text-xs text-gray-500 italic leading-loose">${service.keywords}، مفاتيح، أقفال، أمان، برمجة، السعودية، الباحة، طريق الملك عبدالعزيز، المتخصصون للمفاتيح.</p>
-                    </div>
-                </div>
-
-                <div class="mt-8 flex gap-4">
-                    <a href="tel:+966533040473" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg">اتصل الآن: 0533040473</a>
-                    <a href="https://wa.me/966533040473" class="bg-green-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg">واتساب</a>
-                </div>
+                <h3 class="text-xl font-black text-blue-900">${service.title}</h3>
             `;
             
+            content.innerHTML = generateLongContent(service.title);
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            // Scroll to top of modal content when opened
+            document.querySelector('#landingModal .overflow-y-auto').scrollTop = 0;
         }
 
         function closeLanding() {
@@ -221,21 +373,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Master SEO Content Generation
-        const seoDiv = document.getElementById('master-seo-content');
-        seoDiv.innerHTML = `
-            <p>مرحباً بكم في <strong>مركز المتخصصون للمفاتيح بالباحة</strong>، المركز الأضخم والأكثر تطوراً في تقديم خدمات <strong>نسخ وبرمجة مفاتيح السيارات</strong> و <strong>فتح الأقفال</strong> في المملكة العربية السعودية. نحن نفخر بتواجدنا في قلب مدينة الباحة على <strong>طريق الملك عبدالعزيز</strong>، لنكون قريبين منكم دائماً ونلبي كافة احتياجاتكم المتعلقة بالأمان والدخول.</p>
-            <p>نحن نقدم أكثر من 20 خدمة احترافية، تشمل <strong>برمجة مفاتيح البصمة</strong> لأحدث أنواع السيارات مثل تويوتا، لكزس، نيسان، فورد، جيب، وكيا. إن البحث عن <strong>محل مفاتيح في الباحة</strong> ينتهي دائماً عندنا بفضل تقنياتنا المتطورة التي تضمن <strong>برمجة ريموت السيارة</strong> دون أي تلاعب في ضفيرة الكهرباء أو كمبيوتر السيارة. نحن متخصصون أيضاً في <strong>فتح السيارات المقفلة</strong> في حالات الطوارئ، حيث نصل إليكم أينما كنتم في الباحة والمناطق المجاورة بأسرع وقت ممكن.</p>
-            <p>لا تتوقف خدماتنا عند السيارات فقط، بل نحن مرجع في <strong>نسخ مفاتيح المنازل والفلل</strong>، ونوفر <strong>مفاتيح ليزر</strong> عالية الجودة وأقفال ذكية للأبواب الخشبية والحديدية. بالنسبة لقطاع النقل، نحن نمتلك خبرة حصرية في <strong>برمجة مفاتيح الشاحنات</strong> والمعدات الثقيلة، مثل شاحنات مرسيدس أكتروس وفولفو، وهي خدمات لا تتوفر إلا في مراكز محدودة جداً على مستوى السعودية.</p>
-            <p>في <strong>محل المتخصصون للمفاتيح</strong>، نستخدم أفضل أنواع البطاريات الأصلية للريموتات ونقوم بـ <strong>إصلاح بورد الريموت</strong> وتغيير الأغلفة الخارجية التالفة لتعود كأنها جديدة. إذا كنت تسأل: <strong>أين أجد محل مفاتيح بالباحة قريب مني؟</strong>، فإن فرعنا في شارع الملك عبدالعزيز هو الإجابة الأمثل. نحن نعتمد على مكائن قص المفاتيح الإيطالية التي تضمن دقة بنسبة 100%، مما يحافظ على سلامة "كالون" السيارة والمنزل.</p>
-            <p>نحن ندرك في السعودية أهمية <strong>برمجة مفتاح سيارة سبير</strong> (احتياطي) لتجنب المواقف الحرجة، لذا نقدم عروضاً مستمرة على نسخ المفاتيح الاحتياطية لكافة الموديلات. شعارنا دائماً هو الأمان، السرعة، والاتقان. تواصل معنا الآن على الرقم <strong>0533040473</strong> أو زورنا في المحل لتكتشف لماذا نحن الخيار الأول لأهالي الباحة في كافة خدمات المفاتيح والبرمجة.</p>
-            <div class="bg-gray-50 p-4 rounded-xl text-xs text-gray-400">
-                أرشيف الكلمات: محل مفاتيح الباحة، برمجة مفاتيح الباحة، نسخ مفاتيح الباحة، طريق الملك عبدالعزيز، مفاتيح سيارات السعودية، فتح سيارات مقفلة، ريموت سيارة، بصمة سيارة، مفاتيح شاحنات، تصليح ريموت، بطارية ريموت، مفاتيح منازل، ليزر مفاتيح، الباحة مفاتيح، المتخصصون للمفاتيح، فني مفاتيح الباحة، استخراج مفتاح ضائع، برمجة بصمة الباحة، نسخ ريموت كراج، مفاتيح تجوري، مفاتيح مكاتب، برمجة مفاتيح كيا، برمجة مفاتيح تويوتا، برمجة مفاتيح لكزس.
-            </div>
-        `;
-
-        // UNIQUE REVIEWS DATA (32 different experiences)
         const uniqueReviews = [
+            { name: "أحمد الزهراني", text: "برمجت مفتاح البصمة لسيارتي والنتيجة مذهلة، السعر أرخص من الوكالة." },
             { name: "أحمد الزهراني", text: "برمجت مفتاح البصمة لسيارتي التويوتا والنتيجة مذهلة، السعر أرخص من الوكالة بكثير." },
             { name: "خالد الغامدي", text: "جيتهم في وقت متأخر لفتح باب البيت والشباب ما قصروا، سرعة في التنفيذ وأدب في التعامل." },
             { name: "سلطان العتيبي", text: "أفضل محل مفاتيح في طريق الملك عبدالعزيز، نسخهم دقيق جداً ولا يعلق المفتاح أبداً." },
@@ -266,19 +405,11 @@
             { name: "جمال الخيبري", text: "محل رائد في الباحة، فخورين بوجود شباب محترفين مثلهم." },
             { name: "عصام المولد", text: "برمجة مفاتيح سيارات الوارد الأمريكي عندهم جداً سهلة ومضمونة." },
             { name: "هاشم العبدلي", text: "مفاتيح المصاعد والكرات الممغنطة برمجتها عندهم ممتازة جداً." },
-            { name: "عبدالله السعدي", text: "أفضل تجربة لنسخ مفاتيح الأمان العالية (High Security Keys)." },
-            { name: "مازن النفيعي", text: "الله يبارك لهم في رزقهم، محل متميز وخدماتهم شاملة لكل شيء." }
+            { name: "محمد الشمراني", text: "متخصصين فعلاً في برمجة الشاحنات الأكتروس." }
         ];
-
         const revGrid = document.getElementById('reviews-grid');
         uniqueReviews.forEach(rev => {
-            revGrid.innerHTML += `
-                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 shadow-sm text-xs flex flex-col h-full">
-                    <div class="star-rating mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="font-bold mb-2 text-blue-900">${rev.name}</p>
-                    <p class="text-gray-600 italic leading-relaxed flex-grow">"${rev.text}"</p>
-                </div>
-            `;
+            revGrid.innerHTML += `<div class="bg-gray-50 p-4 rounded-xl shadow-sm text-xs"><p class="font-bold text-blue-900">${rev.name}</p><p class="text-gray-600 italic">"${rev.text}"</p></div>`;
         });
     </script>
 </body>
